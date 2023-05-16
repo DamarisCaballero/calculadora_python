@@ -65,12 +65,11 @@ def capturar_datos(request):
         maths = request.POST.get('maths')
 
         # Redirigir a la página de resultado y pasar los datos como parámetros de consulta
-        return redirect('mostrar_resultado')
+        return redirect(f'/result/?name={name}&physics={physics}&chemistry={chemistry}&maths={maths}')
 
     return render(request, 'capture.html')
 
-
-def mostrar_resultado(request):
+def capturar_datos(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         physics = request.POST.get('physics')
@@ -84,4 +83,7 @@ def mostrar_resultado(request):
             'maths': maths
         })
     else:
-        return redirect('capturar_datos')
+        return render(request, 'capture.html')
+
+def mostrar_resultado(request):
+    return redirect('capturar_datos')
