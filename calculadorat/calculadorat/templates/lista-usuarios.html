@@ -1,0 +1,16 @@
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for usuario in usuarios %}
+    <tr>
+        <td {% if usuario.nombre|first == 'A' %}style="font-weight: bold"{% endif %}>{{ usuario.nombre }}</td>
+        <td>{{ usuario.edad }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

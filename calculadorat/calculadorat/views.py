@@ -24,3 +24,13 @@ def calculadora(request):
                 return render(request, 'calc.html', {'error_msg': error_msg})
 
     return render(request, 'calc.html')
+
+#....................................#
+
+def lista_usuarios(request):
+    usuarios = [
+        {'nombre': 'Juan', 'edad': 25},
+        {'nombre': 'María', 'edad': 30},
+        {'nombre': 'Ana', 'edad': 20},
+    ]
+    return render(request, 'lista-usuarios.html', {'usuarios': usuarios})

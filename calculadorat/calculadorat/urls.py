@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('calculadorat', views.calculadora, name='calculadorat'),
+    path('lista-usuarios', views.lista_usuarios, name='lista_usuarios'),
 ]
 
