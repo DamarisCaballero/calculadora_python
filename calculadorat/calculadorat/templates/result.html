@@ -51,27 +51,30 @@
     background-color: #45a049;
     }
 </style>
-
 <div class="container">
-    <h2 class="text-center">Capture Data</h2>
-    <form class="form" action="{% url 'capturar_datos' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input class="form-control" type="text" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="physics">Physics:</label>
-            <input class="form-control" type="number" name="physics" required>
-        </div>
-        <div class="form-group">
-            <label for="chemistry">Chemistry:</label>
-            <input class="form-control" type="number" name="chemistry" required>
-        </div>
-        <div class="form-group">
-            <label for="maths">Maths:</label>
-            <input class="form-control" type="number" name="maths" required>
-        </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
-    </form>
+    <h2>Result</h2>
+    <table class="table">
+        <tr>
+            <th>Subject</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Mathematics</td>
+            <td>{{ maths }}</td>
+        </tr>
+        <tr>
+            <td>Chemistry</td>
+            <td>{{ chemistry }}</td>
+        </tr>
+        <tr>
+            <td>Physics</td>
+            <td>{{ physics }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ name }}</td>
+        </tr>
+    </table>
 </div>
+
+
