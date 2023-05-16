@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lista de Usuarios</title>
+<style>
+    table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+    }
+    th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    }
+    th {
+    background-color: #f2f2f2;
+    }
+    strong {
+    font-weight: bold;
+    }
+    tfoot td {
+    font-weight: bold;
+    }
+</style>
+</head>
+<body>
 <table>
     <thead>
     <tr>
@@ -8,9 +35,16 @@
     <tbody>
     {% for usuario in usuarios %}
     <tr>
-        <td {% if usuario.nombre|first == 'A' %}style="font-weight: bold"{% endif %}>{{ usuario.nombre }}</td>
+        <td>{% if usuario.nombre|first == 'A' %}<strong>{{ usuario.nombre }}</strong>{% else %}{{ usuario.nombre }}{% endif %}</td>
         <td>{{ usuario.edad }}</td>
     </tr>
     {% endfor %}
     </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="2">Total de usuarios: {{ usuarios|length }}</td>
+    </tr>
+    </tfoot>
 </table>
+</body>
+</html>
