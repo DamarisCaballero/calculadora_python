@@ -1,0 +1,16 @@
+<form action="{% url 'capturar_datos' %}" method="POST">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br>
+
+    <label for="physics">Physics:</label>
+    <input type="number" name="physics" required><br>
+
+    <label for="chemistry">Chemistry:</label>
+    <input type="number" name="chemistry" required><br>
+
+    <label for="maths">Maths:</label>
+    <input type="number" name="maths" required><br>
+
+    <input type="submit" value="Submit">
+</form>

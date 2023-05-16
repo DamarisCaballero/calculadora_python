@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def calculadora(request):
     if request.method == 'POST':
@@ -26,6 +27,8 @@ def calculadora(request):
     return render(request, 'calc.html')
 
 #....................................#
+#....................................#
+#....................................#
 
 def lista_usuarios(request):
     usuarios = [
@@ -49,3 +52,33 @@ def lista_usuarios(request):
         else:
             usuario['negrita'] = False
     return render(request, 'lista-usuarios.html', {'usuarios': usuarios})
+
+#....................................#
+#....................................#
+#....................................#
+
+def capturar_datos(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        physics = request.POST.get('physics')
+        chemistry = request.POST.get('chemistry')
+        maths = request.POST.get('maths')
+
+        return redirect('/result')
+    return render(request, 'capture.html')
+
+
+def mostrar_resultado(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        physics = request.POST.get('physics')
+        chemistry = request.POST.get('chemistry')
+        maths = request.POST.get('maths')
+
+        return render(request, 'result.html', {
+            'name': name,
+            'physics': physics,
+            'chemistry': chemistry,
+            'maths': maths
+        })
+    return redirect('/')

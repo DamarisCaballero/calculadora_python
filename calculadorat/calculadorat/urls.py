@@ -20,5 +20,8 @@ from . import views
 urlpatterns = [
     path('calculadorat', views.calculadora, name='calculadorat'),
     path('lista-usuarios', views.lista_usuarios, name='lista_usuarios'),
+    path('', views.capturar_datos, name='capturar_datos'),
+    path('result', views.mostrar_resultado, name='mostrar_resultado'),
+
 ]
 
