@@ -64,16 +64,20 @@ def capturar_datos(request):
         chemistry = request.POST.get('chemistry')
         maths = request.POST.get('maths')
 
-        return redirect('/result')
+        return redirect('/result/', {
+            'name': name,
+            'physics': physics,
+            'chemistry': chemistry,
+            'maths': maths
+        })
     return render(request, 'capture.html')
 
-
 def mostrar_resultado(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        physics = request.POST.get('physics')
-        chemistry = request.POST.get('chemistry')
-        maths = request.POST.get('maths')
+    if request.method == 'GET':
+        name = request.GET.get('name')
+        physics = request.GET.get('physics')
+        chemistry = request.GET.get('chemistry')
+        maths = request.GET.get('maths')
 
         return render(request, 'result.html', {
             'name': name,
