@@ -1,4 +1,7 @@
-<form action="{% url 'capturar_datos' %}" method="POST">
+<!-- capture.html -->
+<div style="text-align: center;">
+    <h2>Capture Data</h2>
+    <form action="{% url 'capturar_datos' %}" method="POST">
     {% csrf_token %}
     <label for="name">Name:</label>
     <input type="text" name="name" required><br>
@@ -13,4 +16,5 @@
     <input type="number" name="maths" required><br>
 
     <input type="submit" value="Submit">
-</form>
+    </form>
+</div>
